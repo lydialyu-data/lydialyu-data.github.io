@@ -842,6 +842,40 @@
 
         </div>
     </footer>
+  <script>
+    const siteHeader = document.querySelector(".site-header");
 
+    let previousScrollPosition = window.scrollY;
+
+    window.addEventListener("scroll", function () {
+        const currentScrollPosition = window.scrollY;
+
+        if (!siteHeader) {
+            return;
+        }
+
+        /*
+         * 页面顶部始终显示导航栏
+         */
+        if (currentScrollPosition <= 80) {
+            siteHeader.classList.remove("nav-hidden");
+            previousScrollPosition = currentScrollPosition;
+            return;
+        }
+
+        /*
+         * 向下滚动：隐藏导航栏
+         * 向上滚动：显示导航栏
+         */
+        if (currentScrollPosition > previousScrollPosition) {
+            siteHeader.classList.add("nav-hidden");
+        } else {
+            siteHeader.classList.remove("nav-hidden");
+        }
+
+        previousScrollPosition = currentScrollPosition;
+    });
+</script>
+    
 </body>
 </html>
