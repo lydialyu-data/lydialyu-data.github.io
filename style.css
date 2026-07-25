@@ -1554,3 +1554,20 @@ body.lightbox-active {
 .narrow-container .section-heading .section-number {
     margin-left: 0;
 }
+/* =========================================================
+   Align Narrow Text Sections with Other Sections
+   ========================================================= */
+
+/* 恢复 Business Context、Executive Summary、
+   Business Value 外层容器的标准页面宽度 */
+.container.narrow-container {
+    max-width: 1200px;
+}
+
+/* 只限制正文宽度，保持长段文字易读 */
+.container.narrow-container .project-copy,
+.container.narrow-container .executive-summary {
+    max-width: 850px;
+    margin-left: 0;
+    margin-right: auto;
+}
