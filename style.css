@@ -1189,3 +1189,105 @@ footer {
         font-size: 1rem;
     }
 }
+/* =========================================================
+   Project Page Navigation Fix
+   横向导航 + 滚动自动隐藏
+   ========================================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid #e5e7eb;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+/* 向下滚动时隐藏导航栏 */
+.site-header.nav-hidden {
+    transform: translateY(-100%);
+}
+
+.site-header .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 72px;
+}
+
+.site-header .logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #172033;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.site-header .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-header .nav-links li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-header .nav-links a {
+    display: inline-block;
+    color: #2f3847;
+    font-size: 0.93rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.site-header .nav-links a:hover {
+    color: #71809a;
+}
+
+
+/* 手机端仍保持横向，但缩小间距 */
+
+@media (max-width: 700px) {
+
+    .site-header .navbar {
+        min-height: 64px;
+    }
+
+    .site-header .nav-links {
+        gap: 16px;
+    }
+
+    .site-header .nav-links a {
+        font-size: 0.82rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .site-header .navbar {
+        flex-wrap: wrap;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        gap: 12px;
+    }
+
+    .site-header .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+}
