@@ -88,10 +88,13 @@
                 -->
 
                 <img
-                    src="assets/images/coffee-shop-dashboard.png"
-                    alt="Coffee Shop Sales Performance Dashboard"
-                    class="dashboard-image"
-                >
+    src="assets/images/coffee-shop-dashboard.png"
+    alt="Coffee Shop Sales Performance Dashboard"
+    class="dashboard-image"
+    data-lightbox="dashboard"
+    tabindex="0"
+    role="button"
+>
 
             </div>
         </section>
@@ -874,6 +877,105 @@
         }
 
         previousScrollPosition = currentScrollPosition;
+    });
+</script>
+<!-- Dashboard Lightbox -->
+<div
+    class="dashboard-lightbox"
+    id="dashboard-lightbox"
+    aria-hidden="true"
+>
+    <button
+        class="lightbox-close"
+        id="lightbox-close"
+        type="button"
+        aria-label="Close dashboard preview"
+    >
+        ×
+    </button>
+
+    <div class="lightbox-content">
+        <img
+            src="assets/images/coffee-shop-dashboard.png"
+            alt="Coffee Shop Sales Performance Dashboard enlarged"
+            class="lightbox-image"
+        >
+
+        <p class="lightbox-caption">
+            Coffee Shop Sales Performance Dashboard
+        </p>
+    </div>
+</div>
+<script>
+    const dashboardImages = document.querySelectorAll(
+        '[data-lightbox="dashboard"]'
+    );
+
+    const dashboardLightbox = document.getElementById(
+        "dashboard-lightbox"
+    );
+
+    const lightboxClose = document.getElementById(
+        "lightbox-close"
+    );
+
+    function openDashboardLightbox() {
+        if (!dashboardLightbox) {
+            return;
+        }
+
+        dashboardLightbox.classList.add("lightbox-open");
+        dashboardLightbox.setAttribute("aria-hidden", "false");
+        document.body.classList.add("lightbox-active");
+
+        if (lightboxClose) {
+            lightboxClose.focus();
+        }
+    }
+
+    function closeDashboardLightbox() {
+        if (!dashboardLightbox) {
+            return;
+        }
+
+        dashboardLightbox.classList.remove("lightbox-open");
+        dashboardLightbox.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("lightbox-active");
+    }
+
+    dashboardImages.forEach(function (image) {
+        image.addEventListener("click", openDashboardLightbox);
+
+        image.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openDashboardLightbox();
+            }
+        });
+    });
+
+    if (lightboxClose) {
+        lightboxClose.addEventListener(
+            "click",
+            closeDashboardLightbox
+        );
+    }
+
+    if (dashboardLightbox) {
+        dashboardLightbox.addEventListener(
+            "click",
+            function (event) {
+                if (event.target === dashboardLightbox) {
+                    closeDashboardLightbox();
+                }
+            }
+        );
+    }
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            closeDashboardLightbox();
+        }
     });
 </script>
     
