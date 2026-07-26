@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "resume/**"
+      - ".github/workflows/build-resume.yml"
 
 permissions:
   contents: write
@@ -13,22 +16,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Install Typst
-        uses: typst-community/setup-typst@v4
+        uses: typst-community/setup-typst@v5
 
-      - name: Install Chinese Fonts
+      - name: Install Chinese fonts
         run: |
           sudo apt-get update
           sudo apt-get install -y fonts-noto-cjk
 
-      - name: Build Resume
+      - name: Compile Resume
         run: |
+          mkdir -p resume
           typst compile resume/resume.typ resume/Resume.pdf
 
-      - name: Commit PDF
+      - name: Commit generated PDF
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Auto build Resume.pdf"
+          commit_message: "Auto update Resume.pdf"
           file_pattern: resume/Resume.pdf
