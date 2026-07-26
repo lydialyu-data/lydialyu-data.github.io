@@ -28,26 +28,25 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y fonts-noto-cjk
 
-      - name: Build Chinese Resume
+      - name: Build Chinese resume
         run: |
           typst compile resume/cn/resume.typ resume/cn/Resume_CN.pdf
 
-      - name: Build English Resume
+      - name: Build English resume
         run: |
           typst compile resume/en/resume.typ resume/en/Resume_EN.pdf
 
       - name: Commit generated PDFs
         run: |
-          if git diff --quiet; then
-            echo "No changes to commit."
+          git add resume/cn/Resume_CN.pdf resume/en/Resume_EN.pdf
+
+          if git diff --cached --quiet; then
+            echo "Resume PDFs are already up to date."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git add resume/cn/Resume_CN.pdf
-          git add resume/en/Resume_EN.pdf
 
           git commit -m "Auto build resume PDFs"
           git push
