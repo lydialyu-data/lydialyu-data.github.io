@@ -4,21 +4,16 @@
 )
 
 #set text(
-  font: "Noto Serif CJK SC",
+  font: "Libertinus Serif",
   size: 10.5pt,
 )
 
-#set par(
-  justify: true,
-  leading: 0.7em,
-)
-
 #align(center)[
-  #text(size: 22pt, weight: "bold")[Lydia Lv]
+  #text(size: 20pt, weight: "bold")[Lydia Lv]
 
-  Business Analyst • Data Analyst
+  English Resume Test
 ]
 
 #v(1cm)
 
-This resume is automatically generated using Typst and GitHub Actions.
+GitHub Actions Build Test
