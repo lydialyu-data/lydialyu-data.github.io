@@ -32,16 +32,19 @@
 // Section heading
 #let section-title(title) = {
   v(0.72em)
+
   text(
     size: 10.8pt,
     weight: "bold",
   )[#title]
 
   v(0.14em)
+
   line(
     length: 100%,
     stroke: 0.55pt + rgb("#555555"),
   )
+
   v(0.38em)
 }
 
@@ -132,9 +135,24 @@
 #section-title[核心技能]
 
 #skill-row[数据分析][SQL、Excel、Tableau、Python]
-#skill-row[分析能力][销售分析、盈利能力分析、客户分析、KPI 构建、趋势与同比分析]
-#skill-row[业务能力][需求理解、业务问题拆解、报告撰写、跨文化沟通]
-#skill-row[语言能力][英语：熟练｜日语：中级]
+
+#skill-row[
+  分析能力
+][
+  销售分析、盈利能力分析、客户分析、KPI 构建、趋势与同比分析
+]
+
+#skill-row[
+  业务能力
+][
+  需求理解、业务问题拆解、报告撰写、跨文化沟通
+]
+
+#skill-row[
+  语言能力
+][
+  英语：熟练｜日语：中级
+]
 
 // ---------- Relevant Experience ----------
 #section-title[相关经历]
@@ -145,11 +163,10 @@
   2025.08 – 2026.07
 ]
 
-#entry-subheader[
-  自主项目与作品集实践
-][
-  大连
-]
+#entry-subheader(
+  [自主项目与作品集实践],
+  right: [大连],
+)
 
 #bullets((
   [围绕零售及电商业务场景，使用 SQL、Excel 和 Tableau 完成端到端数据分析项目。],
@@ -165,11 +182,10 @@
   2024.08 – 2025.07
 ]
 
-#entry-subheader[
-  理财经理
-][
-  大连
-]
+#entry-subheader(
+  [理财经理],
+  right: [大连],
+)
 
 #bullets((
   [维护客户信息及业务跟进记录，结合客户需求提供储蓄、理财和保险等金融产品服务。],
@@ -223,11 +239,10 @@
   2021 – 2023
 ]
 
-#entry-subheader[
-  银行与金融硕士
-][
-  澳大利亚墨尔本
-]
+#entry-subheader(
+  [银行与金融硕士],
+  right: [澳大利亚墨尔本],
+)
 
 #v(0.18em)
 
@@ -237,12 +252,7 @@
   本科
 ]
 
-#entry-subheader[
-  金融学
-][
-  辽宁沈阳
-]
-
-#section[Skills]
-
-SQL · Python · Excel · Tableau
+#entry-subheader(
+  [金融学],
+  right: [辽宁沈阳],
+)
